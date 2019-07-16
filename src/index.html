@@ -1,0 +1,43 @@
+<!DOCTYPE html> <html lang="ru"> <head> <meta charset="UTF-8"> <title>Just Do there Redux App</title> </head>
+<body>
+<div id="app">
+	<div id="out">
+		State is 20. Click button [DEC] (for decrement 5) or [INC] (for increment 5)
+	</div>
+</div>
+
+<script>
+var state = 20;
+var h = document.getElementById("app");
+var pushOut = document.getElementById("out");
+
+function decrem() {
+	state=updateState(state,'DECREMENT');
+	pushOut.innerHTML = "State changed:" + state;
+}
+
+function increm() {
+	state=updateState(state,'INCREMENT');
+	pushOut.innerHTML = "State changed:" + state;
+}
+
+function updateState(state,action) {
+	if (action === 'INCREMENT'){
+		return state + 5;
+	}
+	else if (action === 'DECREMENT'){
+		return state - 5;
+	}
+	else {
+		return state;
+	}
+}
+
+function pushContent(){
+	h.insertAdjacentHTML("beforeend","<div class='content'>  <button onClick='decrem()'>DEC</button> <button onClick='increm()'>INC</button> </div>");
+}
+
+pushContent();
+</script>
+</body>
+</html>
