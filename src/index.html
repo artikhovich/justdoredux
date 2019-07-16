@@ -1,43 +1,49 @@
-<!DOCTYPE html> <html lang="ru"> <head> <meta charset="UTF-8"> <title>Just Do there Redux App</title> </head>
-<body>
-<div id="app">
-	<div id="out">
-		State is 20. Click button [DEC] (for decrement 5) or [INC] (for increment 5)
-	</div>
-</div>
-
-<script>
-var state = 20;
+<!DOCTYPE html> <html lang="ru"> <head> <meta charset="UTF-8"> <title>Just Do there Redux App</title> </head><body><div id="app"></div><script>
 var h = document.getElementById("app");
-var pushOut = document.getElementById("out");
+function pushContent(){
+	h.insertAdjacentHTML("beforeend","<div class='content'> <div id='out' style='padding:3px;font-size: 16px;width:450px;background-color: #eee;color:#333;'> State is 0. Click button [DEC] (for decrement 5) or [INC] (for increment 5) </div> <input id='input-amount' type='number' placeholder='input amount there' style='padding:1px;font-size:22px;'/> <button onClick='decrem()'>DEC</button> <button onClick='increm()'>INC</button> </div>");
+}
+pushContent();
 
+function updateState(state,action) {
+	const num = Number(state);
+	if (action.type === 'INCREMENT'){
+		return num + Number(action.amount);
+	} else if (action.type === 'DECREMENT'){
+		return num - Number(action.amount);
+	} else {
+		return num;
+	}
+}
+
+class Store {
+	constructor(updateState,state) {
+		this._updateState = updateState;
+		this._state = state;
+	}
+	get state(){
+		return this._state;
+	}
+	update(action) {
+		this._state = this._updateState(this._state, action);
+	}
+}
+
+const store = new Store(updateState,0);
+var pushOut = document.getElementById("out");
 function decrem() {
-	state=updateState(state,'DECREMENT');
-	pushOut.innerHTML = "State changed:" + state;
+	var inputText=document.getElementById('input-amount').value;
+	const decAction = {type:'DECREMENT', amount:inputText};
+	store.update(decAction);
+	pushOut.innerHTML = "State changed: " + store.state;
 }
 
 function increm() {
-	state=updateState(state,'INCREMENT');
-	pushOut.innerHTML = "State changed:" + state;
+	var inputText=document.getElementById('input-amount').value; 
+	const incAction = {type:'INCREMENT', amount:inputText};
+	store.update(incAction);
+	pushOut.innerHTML = "State changed: " + store.state;
 }
-
-function updateState(state,action) {
-	if (action === 'INCREMENT'){
-		return state + 5;
-	}
-	else if (action === 'DECREMENT'){
-		return state - 5;
-	}
-	else {
-		return state;
-	}
-}
-
-function pushContent(){
-	h.insertAdjacentHTML("beforeend","<div class='content'>  <button onClick='decrem()'>DEC</button> <button onClick='increm()'>INC</button> </div>");
-}
-
-pushContent();
 </script>
 </body>
 </html>
