@@ -4,7 +4,6 @@ function pushContent(){
 	h.insertAdjacentHTML("beforeend","<div class='content'> <div id='out' style='padding:3px;font-size: 16px;width:450px;background-color: #eee;color:#333;'> State is 0. Click button [DEC] (for decrement 5) or [INC] (for increment 5) </div> <input id='input-amount' type='number' placeholder='input amount there' style='padding:1px;font-size:22px;'/> <button onClick='decrem()'>DEC</button> <button onClick='increm()'>INC</button> </div>");
 }
 pushContent();
-
 function updateState(state,action) {
 	const num = Number(state);
 	if (action.type === 'INCREMENT'){
