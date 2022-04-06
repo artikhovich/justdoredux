@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import {createStore} from 'redux';
 import { Provider } from 'react-redux';
+
 import Counter from './components/counter';
 import TracksCollection from './components/trackcollection';
 import reducer from './reducers';

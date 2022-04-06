@@ -1,4 +1,4 @@
-const counter = (state = [12], 
+const counter = (state = [89], 
 	action) => {
 	const addCount =1;
 	const num = Number(state);

@@ -10,10 +10,17 @@
 	margin-right: 5px; 
 	padding: 5px
 }
-.counter button.button-count { 
-	height:70px;
-	width:70px;
-	font-size:50px;
-	background-color: #202020;
-	color:#d0d0d0;
+
+
+.counter button.button-count {
+    height: 70px;
+    width: 70px;
+    font-size: 50px;
+    background-color: #872d2d;
+    color: #d0d0d0;
+    border-radius: 50%;
+}
+.counter button.button-count:hover{
+	background-color: #c54848;
+	color: #1a2018;
 }
