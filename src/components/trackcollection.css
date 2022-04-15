@@ -1,0 +1,30 @@
+.TracksCollection {
+	background-color: #d0d0d0;
+    padding: 5px;
+    margin: 0px;
+
+}
+
+.TracksCollection input {
+	color: red;
+}
+
+.TracksCollection button.addTrack {
+	padding: 5px;
+}
+
+.TracksCollection ul.traklist{
+	background-color: #808080;
+    padding: 5px;
+    margin: 5px;
+}
+
+.TracksCollection li.trackitem{
+	font-size: 10px;
+	color: #000000;
+}
+
+.TracksCollection li.trackitem:hover {
+	color: #454545;
+	background-color: #e0e0e0;
+}
