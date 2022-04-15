@@ -1,5 +1,16 @@
-.counter {
+.counter-section {
+	/*background-color: #000000;*/
 	background-color: #d0d0d0;
+}
+
+.counter-section input{
+	padding: 5px;
+	margin: 15px;
+	border-radius: 5px;
+	color: red;
+}
+
+.counter {
 	padding: 10px;
 	display:flex;
 }
@@ -11,7 +22,6 @@
 	padding: 5px
 }
 
-
 .counter button.button-count {
     height: 70px;
     width: 70px;
@@ -20,7 +30,19 @@
     color: #d0d0d0;
     border-radius: 50%;
 }
+
 .counter button.button-count:hover{
-	background-color: #c54848;
+	/*background-color: #c54848;*/
 	color: #1a2018;
+    animation-name: counter-button;
+    animation-duration: 4s;
+}
+
+@keyframes counter-button {
+	from,to {background-color: black;}	
+	15% {background-color: red;}
+	30% {background-color: orange;}
+	45% {background-color: yellow;}
+	60% {background-color: green;}
+	75% {background-color: blue;}
 }

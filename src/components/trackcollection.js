@@ -1,3 +1,4 @@
+import './trackcollection.css';
 import React from 'react';
 import {connect} from 'react-redux';
 
@@ -25,10 +26,22 @@ class TracksCollection extends React.Component{
 					type="text" 
 					ref={(input) => {this.trackInput = input}} 
 					placeholder="input track name" 
-					style={{padding:'10px',margin:'10px'}} 
+					style={{padding:'10px',margin:'10px',width:'120px'}} 
 				/>
-				<button className="addTrack" onClick={this.addTrack.bind(this)} style={{height:'40px',backgroundColor:'black',color:'white',fontSize:'16px',}}>Add Track</button>
-				<ul className="traklist" style={{padding:'0px',margin:'0px'}}>{
+				<button 
+					className="addTrack" 
+					onClick={this.addTrack.bind(this)} 
+					style={{
+						height:'40px',
+						backgroundColor:'#872d2d',
+						color:'white',
+						fontSize:'12px'
+					}}
+				>
+					Add Track
+				</button>
+
+				<ul className="traklist">{
 					this.props.tracks.map((track,index) =>
 					<li 
 						key={index} 
